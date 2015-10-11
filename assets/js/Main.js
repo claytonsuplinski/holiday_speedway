@@ -26,7 +26,7 @@ function resize_canvas(){
 
 window.addEventListener('resize', resize_canvas);
 
-$.ajaxSetup({async:false});
+//$.ajaxSetup({async:false});
 
 function start() {
 
@@ -42,20 +42,17 @@ function start() {
 		gl.depthFunc(gl.LEQUAL);            
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 			
-		basic_shader = new Shader("per-fragment-lighting-vs", "per-fragment-lighting-fs");  //"per-fragment-lighting-vs", "per-fragment-lighting-fs"
+		basic_shader = new Shader("per-fragment-lighting-vs", "per-fragment-lighting-fs");
 
 		HSPEED.init.project();
 
 		max_texture_size = gl.getParameter(gl.MAX_TEXTURE_SIZE);
-
-		tire = HSPEED.models.car;
-		tire.material.specular_color = {r:1.0, g:0.0, b:0.0};
-		tire.material.emissive_color = {r:0.0, g:0.0, b:0.0};
-		tire.material.shininess = 0;
 		
 		car = new Car();
 		
 		camera = new Camera(car);
+		
+		track = new Track(HSPEED.models.track01);
 
 		setInterval(drawScene, 15);
 	}
@@ -91,9 +88,7 @@ function draw_entire_scene(){
 	
 	car.draw();
 	
-	gl.enable(gl.BLEND);
-	HSPEED.models.track01.draw();
-	gl.disable(gl.BLEND);
+	track.draw();
 	
 }
 

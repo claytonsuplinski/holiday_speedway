@@ -8,6 +8,7 @@ function Sphere(rad, lat, lon){
 };
 
 Sphere.prototype = new GraphicsObject();
+Sphere.prototype.constructor = Sphere;
 
 Sphere.prototype.load_vertices = function(){
     var tmp_vertices = [];

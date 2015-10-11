@@ -7,6 +7,7 @@ function OBJ(filename){
 };
 
 OBJ.prototype = new GraphicsObject();
+OBJ.prototype.constructor = OBJ;
 
 OBJ.prototype.load_vertices = function (){
 

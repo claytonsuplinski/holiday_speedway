@@ -7,6 +7,7 @@ function Rectangle(width, height){
 };
 
 Rectangle.prototype = new GraphicsObject();
+Rectangle.prototype.constructor = Rectangle;
 
 Rectangle.prototype.load_vertices = function(){
 

@@ -11,6 +11,10 @@ HSPEED.init.models = function(){
 	HSPEED.models.track01 = new OBJ("./assets/models/track01.obj");
 	HSPEED.models.track01.set_shader(basic_shader);
 	HSPEED.models.track01.set_texture("./assets/textures/track01.png");
+	
+	HSPEED.models.collider = new Sphere(1, 20, 20);
+	HSPEED.models.collider.set_shader(basic_shader);
+	HSPEED.models.collider.set_texture("./assets/textures/car.png");
 }
 
 HSPEED.init.initial_load = true;

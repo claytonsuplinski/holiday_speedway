@@ -8,12 +8,4 @@ function Tire(params){
 };
 
 Tire.prototype = new SpaceObject();
-
-Tire.prototype.draw = function(){
-	mvPushMatrix();
-		gl.enable(gl.BLEND);
-			this.align();
-			this.model.draw();
-		gl.disable(gl.BLEND);
-	mvPopMatrix();
-};
+Tire.prototype.constructor = Tire;
