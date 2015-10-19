@@ -3,7 +3,6 @@ function OBJ(filename){
         this.filename = filename;
 
         this.load_vertices();
-        this.init_buffers();
 };
 
 OBJ.prototype = new GraphicsObject();
@@ -16,7 +15,7 @@ OBJ.prototype.load_vertices = function (){
         $.ajax({
             url: this.filename,
             dataType: "text",
-            async: false,
+            async: true,
             success: function (data){
 
         	var tmp_vertices = [];
@@ -102,10 +101,12 @@ OBJ.prototype.load_vertices = function (){
                         }
                 }
 
-        	self.v = tmp_vertices;
-	        self.vt = tmp_textureCoordinates;
-        	self.vn = tmp_vertexNormals;
-	        self.vertex_indices = tmp_VertexIndices;
+				self.v = tmp_vertices;
+				self.vt = tmp_textureCoordinates;
+				self.vn = tmp_vertexNormals;
+				self.vertex_indices = tmp_VertexIndices;
+				
+				self.init_buffers();
 
             }
         });

@@ -36,6 +36,11 @@ SpaceObject.prototype.collided = function(obj){
 SpaceObject.prototype.draw = function(){
 	mvPushMatrix();
 		gl.enable(gl.BLEND);
+			/*if(this.colliders != ""){
+				this.colliders.forEach(function(collider){
+					collider.draw();
+				});	
+			}*/
 			this.align();
 			this.model.draw();
 			if(this.children != ""){
@@ -43,14 +48,7 @@ SpaceObject.prototype.draw = function(){
 					//alert(child.__proto__.constructor.name);
 					child.draw();
 				});	
-			}
-			/*
-			if(this.colliders != ""){
-				this.colliders.forEach(function(collider){
-					collider.draw();
-				});	
-			}
-			*/
+			}		
 		gl.disable(gl.BLEND);
 	mvPopMatrix();
 	
